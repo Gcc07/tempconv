@@ -26,7 +26,7 @@ def celsius_to_kelvin(c: float) -> float:
     """
     if c < ABSOLUTE_ZERO_C:
         raise ValueError(
-            f"Temperature cannot be below absolute zero " f"({ABSOLUTE_ZERO_C}°C)."
+            f"Temperature cannot be below absolute zero ({ABSOLUTE_ZERO_C}°C)."
         )
     return c + 273.15
 
