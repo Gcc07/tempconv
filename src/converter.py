@@ -26,8 +26,7 @@ def celsius_to_kelvin(c: float) -> float:
     """
     if c < ABSOLUTE_ZERO_C:
         raise ValueError(
-            f"Temperature cannot be below absolute zero "
-            f"({ABSOLUTE_ZERO_C}°C)."
+            f"Temperature cannot be below absolute zero " f"({ABSOLUTE_ZERO_C}°C)."
         )
     return c + 273.15
 
@@ -52,7 +51,7 @@ def convert(value: float, from_unit: str, to_unit: str) -> float:
     from_unit = from_unit.upper()
     to_unit = to_unit.upper()
 
-    if from_unit not in {'C', 'F', 'K'} or to_unit not in {'C', 'F', 'K'}:
+    if from_unit not in {"C", "F", "K"} or to_unit not in {"C", "F", "K"}:
         raise ValueError("Invalid unit. Supported units are: C, F, K")
 
     # If same unit, return as-is
@@ -61,20 +60,20 @@ def convert(value: float, from_unit: str, to_unit: str) -> float:
 
     # Conversion routing.
     celsius_val = 0.0
-    if from_unit == 'C':
+    if from_unit == "C":
         celsius_val = value
-    elif from_unit == 'F':
+    elif from_unit == "F":
         celsius_val = fahrenheit_to_celsius(value)
-    elif from_unit == 'K':
+    elif from_unit == "K":
         celsius_val = kelvin_to_celsius(value)
     else:
         raise ValueError(f"Unknown unit: {from_unit}")
 
-    if to_unit == 'C':
+    if to_unit == "C":
         return celsius_val
-    elif to_unit == 'F':
+    elif to_unit == "F":
         return celsius_to_fahrenheit(celsius_val)
-    elif to_unit == 'K':
+    elif to_unit == "K":
         return celsius_to_kelvin(celsius_val)
     else:
         raise ValueError(f"Unknown unit: {to_unit}")
